@@ -1,0 +1,401 @@
+*{padding: 0; margin: 0; list-style: none;}
+.my{
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+}
+header{
+    width: 1000px;
+    height: 50px;
+    background: #c62f2f;
+    line-height: 50px;
+    position: relative;
+}
+header img{
+    width: 35px;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+header .h_wy{
+    padding-left: 50px;
+    color: #ffffff;
+}
+header .h_se{
+    margin-left: 100px;
+    border-radius: 6px;
+    line-height: 20px;
+    font-size: 12px;
+    border: 1px solid #c62f2f;
+    background: gainsboro;
+    padding-left: 4px;
+}
+header .color_user{color: gainsboro;margin-left: 300px; margin-right: 6px;}
+header .h_login{cursor: pointer;}
+header .color_skin{color: gainsboro;margin-left: 10px; margin-right: 6px;}
+header .h_skin{cursor: pointer;}
+.my_hi{
+    display: none;
+    position: absolute;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.4);
+    width: 1000px;
+    height: 600px;
+}
+header .h_dl{
+    display: none;
+    position: absolute;
+    left: 300px;
+    top: 130px;
+    z-index: 100;
+    background: #bfdcdc;
+    width: 400px;
+    height: 270px;
+    text-align: center;
+}
+.h_dl .color_login{
+    position: absolute;
+    right: 0px;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+header .h_dl ul li .in{width: 250px;height: 30px;}
+header .h_dl ul .ch{margin-left: 180px;}
+.h_dl .form_login{
+    width: 250px;
+    height: 30px;
+    background: #5c598e;
+    border: 1px solid #5c598e;
+}
+
+section{
+    width: 1000px;
+    height: 500px;
+    background: gainsboro;
+    overflow: auto;
+}
+section .s_top{
+    width: 100%;
+    height: 480px;
+}
+section .s_top aside{
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+section .s_top article{
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+
+footer{
+    width: 1000px;
+    height: 50px;
+    background: #c62f2f;
+    line-height: 60px;
+    position: relative;
+}
+footer .play{
+    color: wheat;
+    padding-left: 30px;
+}
+footer .all{
+    position: absolute;
+    left: 220px;
+    top: -4px;
+    width: 600px;
+    font-size: 14px;
+}
+footer .all b{
+    padding: 10px;
+}
+footer .all .a_now{
+    display: inline-block;
+    width: 360px;
+    height: 8px;
+    position: relative;
+    top: -2px;
+    border-radius: 2px;
+    background: gainsboro;
+}
+footer .all .a_now .curtime{
+    display: block;
+    position: relative;
+    top: -2px;
+    border-radius: 2px;
+    background: gainsboro;
+}
+footer .all .a_now .curall{
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: -5px;
+    border-radius: 8px;
+    background: gainsboro;
+}
+footer .color_voice{
+    position: absolute;
+    left: 726px;
+    top: 18px;
+}
+footer .volume{
+    display: inline-block;
+    width: 100px;
+    height: 4px;
+    left: 750px;
+    position: absolute;
+    top: 24px;
+    border-radius: 2px;
+    background: gainsboro;
+}
+input[type=range] {
+    -webkit-appearance: none;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: gainsboro;
+    border-radius: 50%;
+}
+
+aside .l_pic{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 50px solid rgba(0,0,0,0.8);
+    margin: 50px 120px;
+}
+
+.xz{
+    animation: imgstyle 20s linear infinite;
+}
+@keyframes imgstyle {
+    from{transform: rotate(0)}
+    to{transform: rotate(360deg)}
+}
+
+aside ul{
+    margin-left: 100px;
+}
+
+aside ul li{
+    float: left;
+    padding-right: 30px;
+}
+
+article h2{
+    margin: 30px 0px 10px 50px;
+}
+
+article span{
+    padding: 10px;
+    margin-left: 34px;
+}
+
+.ms{
+    color: blue;
+    font-weight: normal;
+}
+
+.lrc{
+    border: 0px solid #000000;
+    margin-top: 10px;
+    padding: 10px 0px 0px 50px;
+    height: 300px;
+    overflow: auto;
+}
+
+article .lrc li{height: 30px;}
+
+.clear{clear:both}
+
+.s_bottom{
+    border: 0px solid #000000;
+    width: 80%;
+    margin: 20px auto;
+    position: relative;
+}
+
+.s_bottom h3{
+    display: inline;
+    font-weight: normal;
+}
+
+.s_bottom .sum{
+    color: grey;
+    font-size: 12px;
+}
+
+.s_bottom .sum b{ font-weight: normal;}
+
+.s_bottom input{width: 750px;height:30px;margin: 12px;padding-left: 10px;}
+
+.s_bottom p{font-size: 14px;margin: 12px;border-bottom: 1px dashed grey;}
+
+.msg{
+    border: 0px solid #ff0000;
+    margin-top: 40px;
+}
+.msg li{vertical-align: middle;margin-top: 40px;}
+.msg li img{
+    width: 60px;
+    border: 0px solid #ff0000;
+    border-radius: 50%;
+    display: block;
+    float: left;
+}
+.msg li .zh{width:700px;border: 0px solid #ff0000;display: block;float: right;font-size: 14px;letter-spacing: 2px;}
+.msg li .zh b{color: blue;font-weight: normal;}
+.msg li .zh label{color: #38b4c6;display: block;margin-top: 6px;letter-spacing: 1px;}
+
+.s_bottom .f_dl{
+    border:  0px solid #ff0000;
+    display: none;
+    position: absolute;
+    left: 220px;
+    top: -250px;
+    z-index: 100;
+    background: #d1d39e;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+}
+.f_dl h3{line-height: 50px;position: relative;left: -120px;}
+.f_dl .f_p{
+    position: absolute;
+    right: 0px;
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.f_dl .f_pl{
+    width: 50px;
+    height: 30px;
+    background: powderblue;
+    margin-left: 250px;
+}
+
+textarea{width: 300px;height: 100px;}
+
+.dian{margin-left: 400px}
+
+.mode{
+    position: absolute;
+    left: 880px;
+    top:18px;
+    z-index: 99;
+}
+
+.mylyric{
+    position: absolute;
+    left: 920px;
+    top:18px;
+    z-index: 99;
+}
+
+.mylist{
+    position: absolute;
+    left: 956px;
+    top:18px;
+    z-index: 99;
+ }
+
+.dig{
+    position: absolute;
+    left: 970px;
+    top:19px;
+    width: 14px;
+    height: 13px;
+    line-height: 13px;
+    padding-left: 4px;
+    display: block;
+    z-index: 99;
+    border-radius: 0px 40% 40% 0px;
+    background: rgba(181, 199, 169, 0.58);
+    font-size: 2px;
+}
+
+.showlyric{
+    width: 1000px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background: rgba(255, 188, 84, 0.1);
+    color: #000000;
+    position: absolute;
+    z-index: 99;
+    display: none;
+    font-size: 38px;
+    font-family: skfont;
+    text-shadow:0 0 15px green;
+    border: 0px solid red;
+}
+
+@font-face {
+    font-family: skfont;
+    src: url(./font1.woff);
+}
+
+.showlist{
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    z-index: 99;
+    border: 0px solid #ff0000;
+    background: rgb(250, 250, 250);
+    box-shadow: 10px;
+    right: 0px;
+    top: -400px;
+    border: 0px solid #ff0000;
+    display: none;
+}
+
+.show{
+    width: 500px;
+    height: 50px;
+    border: 0px solid #ff0000;
+    text-align: center;
+    line-height: 50px;
+    background: rgba(199, 199, 199, 0.83);
+}
+.show span {
+    border: 1px solid #bfc0c1;
+    padding: 2px 15px;
+}
+.show .l{border-radius: 10px 0px 0px 10px; background: #ffffff;border: 0px solid red;cursor: pointer;}
+.show .r{border-radius: 0px 10px 10px 0px; background: #ffffff;border: 0px solid red;cursor: pointer;}
+.oplay{
+    display: none;
+    cursor: pointer;
+    border: 0px solid red;
+}
+.history{
+    cursor: pointer;
+    display: none;
+}
+.oplay h4{border: 0px solid red;line-height: 25px; font-weight: normal;}
+.oplay span{
+    border: 0px solid red;
+    margin-top: -120px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+.oplay ul li{line-height: 40px;border: 0px solid red;}
+.history h4{border: 0px solid red;line-height: 25px; font-weight: normal;}
+.history span{
+    border: 0px solid red;
+    margin-top: -120px;
+    margin-right: 10px;
+    font-size: 12px;
+}
+.history ul li{line-height: 40px;border: 0px solid red;}
