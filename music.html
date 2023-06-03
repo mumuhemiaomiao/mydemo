@@ -1,242 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
         <style>
-        	*{
-        		margin:0px;
-        		padding:0px;
-        		list-style:none;
-        	}
-        	#wrap{
-        		width:500px;
-        		height:300px;
-        		overflow:auto;
-        	}
-        	li{
-        		line-height:30px;
 
-        	}
-        	#list li{
-        		margin-top:20px;
-        		background-color:orange;
-        		cursor:pointer;
-        	}
-
-        	/* 音量控制 */
-        	.volume{
-        		display:inline-block;
-        		width:100px;
-        		height:10px;
-        	}
-        	/* 
-        		-webkit-appearance作用修改按钮和其它控件的外观
-        		是一个不规范的属性，只有chrome和safari支持而且渲染的效果在不同浏览器下不一样，一般隐藏以后自己重写该样式。不直接使用。去除原来的样式
-				
-        	 */
-        	.volume{
-        		-webkit-appearance:none;
-        	}
-        	/* 去除点击以后的蓝色框 */
-        	.volume:focus{
-        		/* 去除蓝色外边框 */
-        		outline:none;
-        	}
-        	/*-webkit-slider-thumb:实现拖拽小点; */
-        	.volume::-webkit-slider-thumb{
-				-webkit-appearance:none;
-				width:12px;
-				height:12px;
-				background:white;
-				
-				border-radius:50%;
-        	}
-        	/* -webkit-slider-runnable-track:实现轨道; */
-        	.volume::-webkit-slider-runnable-track{
-				background-color:red;
-				height:12px;
-				border-radius:20px;
-        	}
-        	/* 音量控制 */
-        	.musicrange{
-        		display:inline-block;
-        		width:200px;
-        		height:10px;
-        	}
-        	/* 
-        		-webkit-appearance作用修改按钮和其它控件的外观
-        		是一个不规范的属性，只有chrome和safari支持而且渲染的效果在不同浏览器下不一样，一般隐藏以后自己重写该样式。不直接使用。去除原来的样式
-				
-        	 */
-        	.musicrange{
-        		-webkit-appearance:none;
-        	}
-        	/* 去除点击以后的蓝色框 */
-        	.musicrange:focus{
-        		/* 去除蓝色外边框 */
-        		outline:none;
-        	}
-        	/*-webkit-slider-thumb:实现拖拽小点; */
-        	.musicrange::-webkit-slider-thumb{
-				-webkit-appearance:none;
-				width:12px;
-				height:12px;
-				background:white;
-				
-				border-radius:50%;
-        	}
-        	/* -webkit-slider-runnable-track:实现轨道; */
-        	.musicrange::-webkit-slider-runnable-track{
-				background-color:red;
-				height:12px;
-				border-radius:20px;
-        	}
+            *{
+                margin:0px;
+                padding:0px;
+                list-style: none;
+            }
+            body{
+                width:80%;
+                text-align: center;
+            }
+            .box{
+                width:600px;
+                overflow: hidden;
+                margin:0px auto;
+            }
+            .box ul{
+                width:250px;
+                float: left;
+            }
+            h1 span{
+                color:red;
+                font-weight: bold;
+                text-shadow: black 0 2px 0;
+            }
+            h1 b{
+                font-weight: normal;
+                font-size: 20px;
+                border:1px solid orange;
+                display: inline-block;
+                width:400px
+            }
+            ul li{
+                border:1px solid #ccc;
+                margin:10px;
+                line-height: 30px;
+                position: relative;
+            }
+            .box .right{
+                float: right;
+            }
+            .current{
+                border:1px solid orange
+            }
+            .left i{
+                position: absolute;
+                width:1px ;
+                background:red;
+                transform-origin: center top;
+                right: 0px;
+                top: 18px;
+                height: 0px;
+                transition: all 1s;
+                
+            }
+            .left .one{
+              
+                transform: rotate(-37deg) ;
+            }
+            .left .two{
+             
+                transform: rotate(-90deg);
+            }
+            .left .three{
+               
+                transform: rotate(-72deg);
+            }
+            .left .four{
+                
+                transform: rotate(-137deg);
+            }
+            .left .five{
+                
+                transform: rotate(-125deg);
+            }
+            .left .one.play{
+                height: 200px;
+            }
+            .left .two.play{
+                height: 121px;
+            }
+            .left .three.play{
+                height: 129px;
+            }
+            .left .four.play{
+                height: 180px;
+            }
+            .left .five.play{
+                height: 149px;
+            }
+            button{
+                background:none;
+                outline: none;
+                border:none;
+                padding:4px 8px;
+                border:1px solid orange
+            }
+            
         </style>
     </head>
     <body>
-    	音量<input type="range" class="volume" value="0"><br><br>
-    	进度条<span id="start"></span><input type="range" class="musicrange" value="0" id="musicrange"><span id="all"></span>
-    	<audio src="music/jn.mp3" id="music" autoplay=""></audio>
-    	<ul id="wrap">
-    		
-    	</ul>
-    	<ul id="list">
-    		
-    	</ul>
-    	<button id="before">上一首</button><button id="btn">暂停</button><button id="next">下一首</button>
-		<h2 id="txt"></h2>
-		
-		<script src="lrc.js"></script>
-    	<script>
-    		var data=[
-        {"id":"1","song": "江南","album": "第二天堂","singer": "林俊杰","source": "搜索页","url": "music/jn.mp3","cover": "http://p1.music.126.net/2diP5uOrailFol-qgmprUQ==/109951163243492839.jpg","lyric": "jn","love": "0","msg": [{"megId":1,"megCon":"还依稀记得，04年。8。手机还不支持MP3 播放，一个同事小姑娘说想听《江南》，当时这首歌超火。于是哥们我就拿单位座机打我自己手机，不接，因为我当时的手机彩铃就是《江南》，就这样一遍遍打，一遍遍听…","date":"2018-08-01 14:36:02","userId":"1"},{"megId":2,"megCon":"怀念那个年代，江南，童话，波斯猫…","date":"2018-08-11 08:10:05","userId":"2"}]},
-        {"id":"2","song": "他不懂","album": "爱，不解释","singer": "张杰","source": "搜索页","url": "music/tbd.mp3","cover": "http://p1.music.126.net/mW53BkMgGy37I7yVrUg-aQ==/109951163117902077.jpg","lyric": "tbd","love": "0","msg": [{"megId":1,"megCon":"听的也想哭，老了，你们还好吗？","date":"2018-08-01 14:36:02","userId":"2"},{"megId":2,"megCon":"在微博看过一个视频，张杰正好在逛街，遇到一个街边唱歌的人，唱的就是江南，林俊杰走上前与他合唱了。暖心","date":"2018-08-11 08:10:05","userId":"3"}]},
-        {"id":"3","song": "我们都一样","album": "Chance","singer": "张杰","source": "搜索页","url": "music/wmdyy.mp3","cover":"http://p1.music.126.net/k5IeL8ko8cx0QsumpecTrA==/109951163076339407.jpg","lyric": "wmdyy","love": "0","msg": [{"megId":1,"megCon":"想起了抄歌词的那个年代","date":"2018-08-01 14:36:02","userId":"3"},{"megId":2,"megCon":"那时候很多人用复读机，好怀念。","date":"2018-08-11 08:10:05","userId":"4"}]},
-        {"id":"4","song": "有何不可","album": "自定义","singer": "许嵩","source": "搜索页","url": "music/yhbk.mp3","cover": "http://p1.music.126.net/Md3RLH0fe2a_3dMDnfqoQg==/18590542604286213.jpg","lyric": "yhbk","love": "0","msg": [{"megId":1,"megCon":"那时候还是借同学MP3听的。。。","date":"2018-08-01 14:36:02","userId":"4"},{"megId":2,"megCon":"有人在2016听吗？举个爪（我是来回忆的）","date":"2018-08-11 08:10:05","userId":"1"}]}
-    	];
-    	var users=[
-        {"id":"1","name":"紫雪凝梦","pwd":"123456","pic":"http://p1.music.126.net/2diP5uOrailFol-qgmprUQ==/109951163243492839.jpg"},
-        {"id":"2","name":"小柠檬","pwd":"123456","pic":"http://p1.music.126.net/mW53BkMgGy37I7yVrUg-aQ==/109951163117902077.jpg"},
-        {"id":"3","name":"果果","pwd":"123456","pic":"http://p1.music.126.net/k5IeL8ko8cx0QsumpecTrA==/109951163076339407.jpg"},
-        {"id":"4","name":"一笑奈何","pwd":"123456","pic":"http://p1.music.126.net/Md3RLH0fe2a_3dMDnfqoQg==/18590542604286213.jpg"}
-    ];
-    var current=0;
+        <h1>
+            <span>连连看</span>
+            <b>历届三中全会聚焦改革关键词</b>
+        </h1>
+        <div class="box">
+            <ul class="left">
+                <li>党的十一届三中全会 <i class="one"></i></li>
+                <li>党的十四届三中全会 <i class="two"></i></li>
+                <li>党的十五届三中全会 <i class="three"></i></li>
+                <li>党的十八届三中全会 <i class="four"></i></li>
+                <li>党的十九届三中全会 <i class="five"></i></li>
+            </ul>
+            <ul class="right">
+                <li>全面深化改革</li>
+                <li>建立社会主义市场经济体制</li>
+                <li>深化党和国家机构改革</li>
+                <li>农村改革</li>
+                <li>改革开放</li>
+            </ul>
+            
+        </div>
+      
+        
 
-	    function musiclist(a){
-	    	wrap.innerHTML=''
-	    	for(var i=0;i<lrcs[a].lyric.length;i++){
+        <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+           var t=9;
+           var m=9
+            $('.left li').click(function(){
+                $(this).addClass('current');
+                $(this).siblings().removeClass('current');
+                t=$(this).index()
+                if($(this).index()==3 && m==0){
+                    console.log(1111)
+                    $('.four').addClass('play')
+                }
+                if($(this).index()==1 && m==1){
+                    console.log(1111)
+                    $('.two').addClass('play')
+                }
+                if($(this).index()==4 && m==2){
+                    console.log(1111)
+                    $('.five').addClass('play')
+                }
+                if($(this).index()==2 && m==3){
+                    console.log(1111)
+                    $('.three').addClass('play')
+                }
+                if($(this).index()==0 && m==4){
+                    console.log(1111)
+                    $('.one').addClass('play')
+                }
+            })
+            $('.right li').click(function(){
+                m=$(this).index()
+                $(this).addClass('current');
+                $(this).siblings().removeClass('current')
+                console.log($(this).index())
+                if($(this).index()==4 && t==0){
+                    console.log(1111)
+                    $('.one').addClass('play')
+                }
+                if($(this).index()==1 && t==1){
+                    console.log(1111)
+                    $('.two').addClass('play')
+                }
+                if($(this).index()==3 && t==2){
+                    console.log(1111)
+                    $('.three').addClass('play')
+                }
+                if($(this).index()==0 && t==3){
+                    console.log(1111)
+                    $('.four').addClass('play')
+                }
+                if($(this).index()==2 && t==4){
+                    console.log(1111)
+                    $('.five').addClass('play')
+                }
+              
+            })
 
-		    	var tag=document.createElement('li');
-		    	tag.innerHTML=lrcs[a].lyric[i].lineLyric;
-		    	wrap.appendChild(tag)
-		    }
-	    }
-	    musiclist(0)
-
-	    for(var j=0;j<data.length;j++){
-	    	var tag=document.createElement('li');
-	    	tag.innerHTML=data[j].song;
-	    	
-	    	tag.setAttribute('onclick',`play(${j})`)
-	    	list.appendChild(tag)
-	    }
-
-	    function play(a){
-	    	musiclist(a)
-	    	current=a;
-	    	music.setAttribute('src',data[a].url)
-	    	start.innerHTML='00:00'
-
-	    }
-	    music.onplaying=function(){
-
-	    	musicrange.max=music.duration;
-		    var s=parseInt(music.duration/60);
-			if(s<10){
-				s='0'+s
-			}
-			var m=parseInt(music.duration%60)
-	    	all.innerHTML=s+':'+m;
-	    	
-    	}
-	    before.onclick=function(){
-	    	current=current-1;
-	    	if(current<0){
-	    		current=data.length-1
-	    	}
-	    	music.setAttribute('src',data[current].url)
-	    }
-	    next.onclick=function(){
-	    	current=current+1;
-	    	if(current>data.length-1){
-	    		current=0
-	    	}
-	    	music.setAttribute('src',data[current].url);
-
-	    	
-	    }
-	    btn.onclick=function(){
-	    	if(music.paused){
-	    		music.play();
-	    		this.innerHTML="暂停"
-	    	}else{
-	    		music.pause();
-	    		this.innerHTML='播放'
-	    	}
-	    }
-	    function r(){
-	    	musicrange.value=music.currentTime;
-	    	var s=parseInt(music.currentTime/60);
-			if(s<10){
-				s='0'+s
-			}
-
-			var m=parseInt(music.currentTime%60)
-			if(m<10){
-				m='0'+m
-			}
-	    	start.innerHTML=s+':'+m;
-
-
-	    	// 进度条
-	    	for(var i=0;i<lrcs[current].lyric.length;i++){
-	    		console.log(lrcs[current].lyric[i].time)
-	    		if(parseInt(lrcs[current].lyric[i].time)==parseInt(music.currentTime)){
-	    			console.log(i)
-	    			for (var m=0;m<wrap.children.length;m++){
-	    				wrap.children[m].style.color='black';
-	    			}
-	    			wrap.children[i].style.color='red';
-	    			txt.innerHTML=wrap.children[i].innerHTML;
-	    			wrap.scrollTop=i*30
-	    			if(i<=0) return;
-	    			
-	    		}
-	    		// 滚动
-		    	
-		    	
-		    	
-		    }
-	    	
-	    }
-	    music.ontimeupdate=r;
-	    musicrange.oninput=function(){
-	    	music.ontimeupdate=null
-	    }
-	    musicrange.onchange=function(){
-	    	music.currentTime=musicrange.value;
-	    	music.play()
-	    	music.ontimeupdate=r;
-
-	    }
-	    music.onended=function(){
-    		play(1)
-    	}
-
-
-
-
-
-    	</script>
+          
+        </script>
     </body>
 </html>
